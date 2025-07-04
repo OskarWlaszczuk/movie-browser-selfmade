@@ -2,6 +2,13 @@
 
 **Movie Browser** is a web application for browsing movies and people related to the film industry. It uses data provided by [The Movie Database (TMDB)](https://developer.themoviedb.org/reference/intro/getting-started).
 
+## About This Project
+
+This repository (`movie-browser-selfmade`) contains the original version of the Movie Browser application.  
+It showcases the initial implementation, core features, and layout that served as the foundation for further development.  
+
+A newer version ([`movie-browser-selfmade-2.0`](https://github.com/OskarWlaszczuk/movie-browser-selfmade-2.0.git)) is currently in progress, aiming to introduce improved design and additional functionalities.
+
 ## 🧭 Features
 
 - 🔍 Search for movies and people (actors, directors, etc.)
