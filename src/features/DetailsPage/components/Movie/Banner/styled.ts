@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const BannerContainer = styled.div`
-    width: 100%;
     background-color: ${({ theme }) => theme.colors.woodsmoke};
 `;
 
@@ -37,7 +36,6 @@ export const BannerBackground =
         box-shadow: inset 0px 5px 14px 11px 
             ${({ theme }) => theme.colors.woodsmoke};
             padding-top: 20%;
-            padding-bottom: 0;
             background-size: 100%;
     };
 
@@ -52,7 +50,7 @@ export const BannerMainInfo = styled.div`
     flex-direction: column;
 
     @media (max-width:  ${({ theme }) => theme.breakpoints.mobileL}) {
-        gap: 8px;
+        gap: 12px;
     };
 `;
 
