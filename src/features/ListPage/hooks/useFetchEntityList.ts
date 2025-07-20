@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { EntityPluralType } from "../../../common/aliases/types/entityTypes.types";
 import { fetchFromAPI } from "../../../common/functions/fetchFromAPI";
-import { EntityListUnion } from "../types/entityList.types";
+import { EntityListDataUnion } from "../types/entityList.types";
 import { OrUndefined } from "../../../common/aliases/types/OrUndefined";
 import {
     ApiPopularEndpointPath,
@@ -22,7 +22,7 @@ interface UseFetchEntityListProps {
 }
 
 export interface EntityListQuery {
-    data: OrUndefined<EntityListUnion>;
+    data: OrUndefined<EntityListDataUnion>;
     status: typeof FETCH_STATUSES.ERROR | typeof FETCH_STATUSES.PENDING | typeof FETCH_STATUSES.SUCCESS;
     isPaused: boolean;
 }
@@ -37,10 +37,10 @@ export const useFetchEntityList = ({
     const fecthEntityList = async () => {
         const formattedSearchParams = new URLSearchParams(endpointQueryParams as any);
         const endpoint = `${listEndpointPath}?${formattedSearchParams}`;
-        return await fetchFromAPI<EntityListUnion>(endpoint);
+        return await fetchFromAPI<EntityListDataUnion>(endpoint);
     };
 
-    const { data, status, isPaused } = useQuery<EntityListUnion>({
+    const { data, status, isPaused } = useQuery<EntityListDataUnion>({
         queryKey: [entityListName, endpointQueryParams],
         queryFn: fecthEntityList,
         enabled: fetchCondition,

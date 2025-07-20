@@ -1,10 +1,10 @@
 import { OrUndefined } from "../../../../../common/aliases/types/OrUndefined";
 import { TilesListSection } from "../../../../../common/components/TilesListSection";
-import { EntityListUnion } from "../../../types/entityList.types";
+import { EntityListDataUnion } from "../../../types/entityList.types";
 import { Pagination } from "../Pagination/components";
 
 interface ListSectionProps {
-    entityListData: OrUndefined<EntityListUnion>;
+    entityListData: OrUndefined<EntityListDataUnion>;
     title: string;
 }
 

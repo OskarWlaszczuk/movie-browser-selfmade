@@ -2,7 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import { OrUndefined } from "../../../../../../common/aliases/types/OrUndefined";
 import { URL_QUERY_PARAM_KEYS } from "../../../../../../common/constants/URL_QUERY_PARAM_KEYS";
 import { useReplaceQueryParameter } from "../../../../../../common/hooks/useReplaceQueryParameter";
-import { EntityListUnion } from "../../../../types/entityList.types";
+import { EntityListDataUnion } from "../../../../types/entityList.types";
 import { StyledNextPageIcon, StyledPreviousPageIcon } from "../components/PaginationButtonGroup/styled";
 import { PaginationButtonData } from "../types/PaginationButtonData";
 import { theme } from "../../../../../../core/theme";
@@ -60,7 +60,7 @@ const usePaginationButtonsHelpers = () => {
 };
 
 export const usePaginationButtons = (
-    currentPage: OrUndefined<EntityListUnion["page"]>,
+    currentPage: OrUndefined<EntityListDataUnion["page"]>,
     maxTotalPages: number,
 ) => {
 

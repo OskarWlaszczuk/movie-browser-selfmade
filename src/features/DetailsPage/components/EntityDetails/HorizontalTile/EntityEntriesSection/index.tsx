@@ -2,7 +2,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { MetaData } from "../../../../../../common/components/MetaData";
 import { capitalizeFirstLetter } from "../../../../../../common/functions/capitalizeFirstLetter";
 import { EntityEntries } from "../../../../types/entityEntries.types";
-import { StyledValue } from "./styled";
+import { StyledValue } from "./styled"
 import { theme } from "../../../../../../core/theme";
 import { useMediaQuery } from "react-responsive";
 

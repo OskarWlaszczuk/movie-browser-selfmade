@@ -11,4 +11,4 @@ export interface EntityList<ResultsType extends SimplefiedMovieItem[] | Simplefi
 export type PeopleList = EntityList<SimplefiedPersonItem[]>;
 export type MoviesList = EntityList<SimplefiedMovieItem[]>;
 
-export type EntityListUnion = PeopleList | MoviesList;
+export type EntityListDataUnion = PeopleList | MoviesList;
