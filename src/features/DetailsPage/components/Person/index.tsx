@@ -18,7 +18,7 @@ export const Person = () => {
         status: personStatus,
         data: person,
         isPaused: isPersonPaused,
-    } = useEntityDetails<DetailedPersonItem>({ entityId: id!, entityType: entitiesSingularTypes.MOVIE, fetchDependencies });
+    } = useEntityDetails<DetailedPersonItem>({ entityId: id!, entityType: entitiesSingularTypes.PERSON, fetchDependencies });
 
     const {
         status: personFilmographyStatus,
