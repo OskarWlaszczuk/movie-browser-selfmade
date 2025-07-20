@@ -1,9 +1,10 @@
 import { useMediaQuery } from "react-responsive";
-import { EntityEntriesSection } from "../../../../../features/DetailsPage/components/EntityDetails/HorizontalTile/EntityEntriesSection";
+
 import { MovieEntries } from "../../../../../features/DetailsPage/types/entityEntries.types";
 import { DetailedMovieItem } from "../../../../aliases/interfaces/movie.types";
 import { OrUndefined } from "../../../../aliases/types/OrUndefined";
 import { theme } from "../../../../../core/theme";
+import { EntityEntriesSection } from "../../../../../features/DetailsPage/components/EntityDetails/HorizontalTile/EntityEntriesSection";
 
 interface MovieEntriesSectionProps {
     detailedMovieItem: OrUndefined<DetailedMovieItem>;
