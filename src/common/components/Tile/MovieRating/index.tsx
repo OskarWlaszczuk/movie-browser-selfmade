@@ -1,25 +1,25 @@
 import { SimplefiedMovieItem } from "../../../aliases/interfaces/movie.types";
 import { OrUndefined } from "../../../aliases/types/OrUndefined";
-import { MetaData } from "../../MetaData";
-import { RatingScore, StyledMovieRating, StyledStarIcon } from "./styled";
+import { RatingScore, StyledMovieRating, StyledStarIcon, VotesInfo } from "./styled";
 
 interface MovieRatingProps {
     voteAverage: OrUndefined<SimplefiedMovieItem["vote_average"]>;
     voteCount: OrUndefined<SimplefiedMovieItem["vote_count"]>;
+    useBannerStyles?: boolean;
 }
 
-export const MovieRating = ({ voteAverage, voteCount }: MovieRatingProps) => {
+export const MovieRating = ({ voteAverage, voteCount, useBannerStyles }: MovieRatingProps) => {
     const areVotesAvailable = voteCount !== 0;
 
     return (
         <StyledMovieRating>
             {areVotesAvailable && (
                 <>
-                    <StyledStarIcon />
-                    <RatingScore>{voteAverage?.toFixed(1).replace('.', ',')}</RatingScore>
+                    <StyledStarIcon $bannerStyles={useBannerStyles || false} />
+                    <RatingScore $bannerStyles={useBannerStyles || false}>{voteAverage?.toFixed(1).replace('.', ',')}</RatingScore>
                 </>
             )}
-            <MetaData>{areVotesAvailable ? `${voteCount} votes` : "No votes yet"}</MetaData>
+            <VotesInfo $bannerStyles={useBannerStyles || false}>{areVotesAvailable ? `${voteCount} votes` : "No votes yet"}</VotesInfo>
         </StyledMovieRating>
     );
 };

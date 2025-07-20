@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as StarIcon } from "././svgs/Star.svg";
+import { MetaData } from "../../MetaData";
+interface SharedProps {
+    $bannerStyles: boolean;
+}
 
 export const StyledMovieRating = styled.section`
     display: flex;
@@ -13,18 +17,51 @@ export const StyledMovieRating = styled.section`
     }
 `;
 
-export const StyledStarIcon = styled(StarIcon)`
-    width: 24px;
-    
-    @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
-        width: 16px;
-    }
+export const StyledStarIcon = styled(StarIcon) <SharedProps>`
+   svg {
+        width: 24px;
+        
+        @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
+            width: 16px;
+        }
+   }
+
+    ${({ $bannerStyles }) => $bannerStyles && css`
+        svg {
+            width: 32px;
+
+            @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
+                width: 24px;
+            }
+        }
+    `}
 `;
 
-export const RatingScore = styled.strong`
+export const RatingScore = styled.strong<SharedProps>`
     font-size: ${({ theme }) => theme.fontSizes.m};
 
     @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
         font-size: ${({ theme }) => theme.fontSizes.xs};
     }
+
+    ${({ $bannerStyles, theme }) => $bannerStyles && css`
+        font-size: ${theme.fontSizes.xl};
+
+        @media (max-width: ${theme.breakpoints.laptopXS}) {
+            font-size: ${theme.fontSizes.m};
+        }
+    `}
+`;
+
+
+
+export const VotesInfo = styled(MetaData) <SharedProps>`
+    ${({ $bannerStyles, theme }) => $bannerStyles && css`
+        font-size: ${theme.fontSizes.l};
+        color: ${theme.colors.white};
+       
+        @media (max-width: ${theme.breakpoints.laptopXS}) {
+            font-size: ${theme.fontSizes.m};
+        }
+    `}
 `;
