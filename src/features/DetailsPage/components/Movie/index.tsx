@@ -27,12 +27,14 @@ export const Movie = () => {
         status: movieCreditsStatus,
         data: movieCredits,
         isPaused: isMovieCreditsPaued,
-    } = useEntityCredits<MovieCredits>({ entityId: id!, entityType: entitiesSingularTypes.PERSON, fetchDependencies });
+    } = useEntityCredits<MovieCredits>({ entityId: id!, entityType: entitiesSingularTypes.MOVIE, fetchDependencies });
 
     const combinedFetchStatus = useCombinedFetchStatus(
         [movieStatus, genresStatus, movieCreditsStatus],
         [isMoviePaused, isMovieCreditsPaued]
     );
+
+    if (!movie && !movieCredits) return null;
 
     return (
         <>
