@@ -17,11 +17,15 @@ export const ListSection = ({ entityListData, title }: ListSectionProps) => {
 
     return (
         <>
-            <TilesListSection
-                list={entityListData?.results}
-                titleData={{ isPageTitle: true, text: title }}
-            />
-            <Pagination {...paginationProps} />
+            {entityListData?.results && (
+                <>
+                    <TilesListSection
+                        list={entityListData?.results}
+                        titleData={{ isPageTitle: true, text: title }}
+                    />
+                    <Pagination {...paginationProps} />
+                </>
+            )}
         </>
     );
 };

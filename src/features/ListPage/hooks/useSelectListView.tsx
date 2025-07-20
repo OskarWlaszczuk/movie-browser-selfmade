@@ -33,7 +33,7 @@ export const useSelectListView = ({
             page: urlQueryParams.pageNumber,
             query: urlQueryParams.search,
         },
-        fetchCondition: isSearchResultsDisplay
+        fetchCondition: isSearchResultsDisplay && !!urlQueryParams.search
     });
 
     const {
@@ -49,7 +49,7 @@ export const useSelectListView = ({
     );
 
     const view = (
-        isSearchResultsDisplay && currentListData?.total_results === 0 ?
+        urlQueryParams.search && searchResultsQuery.data?.total_results === 0 ?
             <NoResultsMessage search={urlQueryParams.search} /> :
             <ListSection
                 entityListData={currentListData}

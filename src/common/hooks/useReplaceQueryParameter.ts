@@ -16,7 +16,7 @@ export const useReplaceQueryParameter = () => {
                 searchParams.delete(key)
             }) :
             queryParamsList.forEach(({ key, value }) => {
-                searchParams.set(key, value.toString())
+                searchParams.set(key, value?.toString() || "")
             });
 
         navigate(`${basePath}?${searchParams.toString()}`);

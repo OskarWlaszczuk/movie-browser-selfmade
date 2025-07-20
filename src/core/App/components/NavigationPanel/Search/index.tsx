@@ -17,10 +17,11 @@ export const Search = () => {
     const searchEntityType = getURLPath(pathname);
 
     const onInputChange = ({ target }: { target: HTMLInputElement }) => {
+        const searchNameTrimmed = target.value.trim();
         const queryParamsList: UrlQueryKeyValuePair[] = [
             {
                 key: URL_QUERY_PARAM_KEYS.SEARCH,
-                value: target.value,
+                value: searchNameTrimmed || undefined,
             },
             {
                 key: URL_QUERY_PARAM_KEYS.PAGE,
@@ -29,6 +30,7 @@ export const Search = () => {
         ];
 
         replaceQueryParameter(queryParamsList);
+
 
     };
 
