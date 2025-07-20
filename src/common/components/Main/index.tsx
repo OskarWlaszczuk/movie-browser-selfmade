@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { JSX, ReactNode } from "react";
 import { FetchStatus } from "../../aliases/types/FetchStatus";
 import { FETCH_STATUSES } from "../../constants/FETCH_STATUSES";
 import { MainContent, MainSection } from "./styled";
@@ -10,10 +10,10 @@ interface MainProps {
     successContent: ReactNode;
     combinedFetchStatus: FetchStatus;
     extraLoaderContent?: ReactNode;
-    bannerContent?: ReactNode;
+    bannerElement?: JSX.Element;
 };
 
-export const Main = ({ successContent, bannerContent, combinedFetchStatus, extraLoaderContent, errorMessage }: MainProps) => {
+export const Main = ({ successContent, bannerElement, combinedFetchStatus, extraLoaderContent, errorMessage }: MainProps) => {
 
     const selectContentByStatus = () => {
         switch (combinedFetchStatus) {
@@ -38,7 +38,7 @@ export const Main = ({ successContent, bannerContent, combinedFetchStatus, extra
 
     return (
         <MainSection>
-            {bannerContent || <></>}
+            {!!bannerElement && combinedFetchStatus !== "error" ? bannerElement : <></>}
             <MainContent>
                 {selectContentByStatus()}
             </MainContent>
