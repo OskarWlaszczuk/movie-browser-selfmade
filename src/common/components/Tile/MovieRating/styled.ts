@@ -8,9 +8,10 @@ interface SharedProps {
 export const StyledMovieRating = styled.section`
     display: flex;
     gap: 12px;
-    align-items: end;
+    align-items: center;
     grid-area: movieRating;
     white-space: nowrap;
+
 
     @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
         gap: 8px;
@@ -18,22 +19,19 @@ export const StyledMovieRating = styled.section`
 `;
 
 export const StyledStarIcon = styled(StarIcon) <SharedProps>`
-   svg {
         width: 24px;
         
         @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
             width: 16px;
         }
-   }
+   
 
     ${({ $bannerStyles }) => $bannerStyles && css`
-        svg {
             width: 32px;
 
-            @media (max-width: ${({ theme }) => theme.breakpoints.laptopXS}) {
-                width: 24px;
+            @media (max-width: ${({ theme }) => theme.breakpoints.mobileL}) {
+                width: 18px;
             }
-        }
     `}
 `;
 
